@@ -1,0 +1,53 @@
+.navbar{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(80, 85, 85);
+}
+
+.navlink{
+    color: red;
+}
+
+.formadditem {
+    margin: 2% 2% 2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2% 1% 2%;
+    background-color: rgb(104, 104, 104);
+}
+
+.itemview {
+    align-items: center;
+    max-width: 400px; /* Ajusta según tus necesidades */
+    margin: auto; /* Centra horizontalmente */
+    position: relative;
+}
+  
+.itemimg {
+    width: 100%; /* Utiliza el 100% del contenedor padre */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.cardbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoitem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+
+
+
+  
+  
+
+  

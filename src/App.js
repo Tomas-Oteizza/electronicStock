@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
 import {Route, Routes, BrowserRouter} from 'react-router-dom'
 import Index from './pages/index';
 import AddItem from './pages/addItem';
