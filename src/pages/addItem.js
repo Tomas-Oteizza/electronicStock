@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useAppContext } from "../store/store";
+import Layout from "../components/layout";
+import { useNavigate } from "react-router-dom";
 
 export default function AddItem() {
     const [title, setTitle] = useState('');
@@ -6,6 +9,9 @@ export default function AddItem() {
     const [image, setImage] = useState('');
     const [caract, setCaract] = useState('');
     const [exist, setExist] = useState(false);
+
+    const store = useAppContext()
+    const navigate = useNavigate()
 
     function handleChange(event) {
         const name = event.target.name;
@@ -56,38 +62,41 @@ export default function AddItem() {
             exist,
         };
 
-        // TODO: mandar a registrar el item
+        store.createItem(newItem)
+        navigate("/")
     }
 
     return (
-        <form onSubmit={handleSubmit}> 
-            <div>
-                <div>title</div>
-                <input type="text" name="title" onChange={handleChange} value={title}  />
-            </div>
+        <Layout>
+            <form onSubmit={handleSubmit}> 
+                <div>
+                    <div>title</div>
+                    <input type="text" name="title" onChange={handleChange} value={title}  />
+                </div>
 
-            <div>
-                <div>company</div>
-                <input type="text" name="company" onChange={handleChange} value={company}  />
-            </div>
+                <div>
+                    <div>company</div>
+                    <input type="text" name="company" onChange={handleChange} value={company}  />
+                </div>
 
-            <div>
-                <div>image</div>
-                <input type="file" name="image" onChange={handleChangeFile}  />
-            </div>
-            <div>{!!image ? <img src={image} width="200px" alt="Preview" /> : ''}</div>
+                <div>
+                    <div>image</div>
+                    <input type="file" name="image" onChange={handleChangeFile}  />
+                </div>
+                <div>{!!image ? <img src={image} width="200px" alt="Preview" /> : ''}</div>
 
-            <div>
-                <div>caract</div>
-                <input type="text" name="caract" onChange={handleChange} value={caract}  />
-            </div>
+                <div>
+                    <div>caract</div>
+                    <input type="text" name="caract" onChange={handleChange} value={caract}  />
+                </div>
 
-            <div>
-                <div>exist</div>
-                <input type="checkbox" name="exist" onChange={handleChange} value={exist}  />
-            </div>
+                <div>
+                    <div>Stock</div>
+                    <input type="checkbox" name="exist" onChange={handleChange} value={exist}  />
+                </div>
 
-            <input type="submit" value="New Item" />
-        </form>
+                <input type="submit" value="New Item" />
+            </form>
+        </Layout>
     );
 }
